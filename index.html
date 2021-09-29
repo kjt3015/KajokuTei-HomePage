@@ -1,52 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .frame{
+        .frame {
             display: grid;
-            grid-template-rows: 60px 800px 50px;
+            grid-template-rows: auto 800px 50px;
         }
 
-        .container{
+        .section {
             display: grid;
-            grid-template-rows: 1fr 1fr;
+            grid-template-rows: auto 1fr;
         }
-
-        div{
+        .header{
+            display: grid;
+            grid-template-columns: auto 1fr 1fr;
+        }
+        div {
             border: 2px solid;
             margin: 10px;
         }
-
+        .header >div{
+            margin: 0px;
+        }
         /* #슬라이드 */
-        .section input[id*="slide"]{
+        .section input[id*="slide"] {
             display: none;
         }
-        .section .slidewrap{
+
+        .section .slidewrap {
             max-width: auto;
             margin: 0 auto;
             overflow: hidden;
         }
+
         .section .slidelist {
             white-space: nowrap;
             font-size: 0;
+            padding: 0%;
         }
-        .section .slidelist > li {
+
+        .section .slidelist>li {
             display: inline-block;
             vertical-align: middle;
             width: 100%;
             transition: all .5s;
         }
-        .section .slidelist > li > a {
+
+        .section .slidelist>li>a {
             display: block;
             position: relative;
         }
-        .section .slidelist > li > a img {
+
+        .section .slidelist>li>a img {
             width: 100%;
         }
+
         .section .slidelist label {
             position: absolute;
             z-index: 10;
@@ -55,72 +68,88 @@
             padding: 50px;
             cursor: pointer;
         }
+
         .section .slidelist .left {
             left: 30px;
             background: url('img/왼쪽.png') center center / 100% no-repeat;
         }
+
         .section .slidelist .right {
             right: 30px;
             background: url('img/오른쪽.png') center center / 100% no-repeat;
         }
-        .section [id="slide01"]:checked ~ .slidewrap .slidelist > li {transform: translateX(0%);}
-        .section [id="slide02"]:checked ~ .slidewrap .slidelist > li {transform: translateX(-105%);}
-        .section [id="slide03"]:checked ~ .slidewrap .slidelist > li {transform: translateX(-205%);}
-         /* #슬라이드끝 */
+
+        .section [id="slide01"]:checked~.slidewrap .slidelist>li {
+            transform: translateX(0%);
+        }
+
+        .section [id="slide02"]:checked~.slidewrap .slidelist>li {
+            transform: translateX(-100%);
+        }
+
+        .section [id="slide03"]:checked~.slidewrap .slidelist>li {
+            transform: translateX(-200%);
+        }
+
+        /* #슬라이드끝 */
     </style>
 </head>
+
 <body>
-    <div class="frame">
+    <div style="border: 0px;" class="frame">
         <div style="position: sticky; right: 10px; top: 10px; background-color: white;" class="header">
-            header
+            <img src="img/가족정.jpg" alt="">
+            <div></div>
+            <div></div>
         </div>
-        
-        <div class="container">
-            `
-            <!-- #슬라이드 시작 -->
-            <div class="section">
-                <input type="radio" name="slide" id="slide01" checked>
-                <input type="radio" name="slide" id="slide02">
-                <input type="radio" name="slide" id="slide03">
-                <div class="slidewrap">
-        
-                    <ul class="slidelist">
-        
-                        <li>
-                            <a href="">
-                                <label for="slide03" class="left"></label>
-                                <img src="img/돈까스.jpg" alt="">
-                                <label for="slide02" class="right"></label>
-                            </a>
-                        </li>
-        
-                        <li>
-                            <a href="">
-                                <label for="slide01" class="left"></label>
-                                <img src="img/라면.jpg" alt="">
-                                <label for="slide03" class="right"></label>
-                            </a>
-                        </li>                
-                        
-                        <li>
-                            <a href="">
-                                <label for="slide02" class="left"></label>
-                                <img src="img/소바.jpg" alt="">
-                                <label for="slide01" class="right"></label>
-                            </a>
-                        </li>
-        
-                    </ul>
-        
-                </div>
+
+
+        <!-- #슬라이드 시작 -->
+        <div class="section">
+            <input type="radio" name="slide" id="slide01" checked>
+            <input type="radio" name="slide" id="slide02">
+            <input type="radio" name="slide" id="slide03">
+            <div class="slidewrap">
+
+                <ul class="slidelist">
+
+                    <li>
+                        <a href="">
+                            <label for="slide03" class="left"></label>
+                            <img src="img/돈까스.jpg" alt="">
+                            <label for="slide02" class="right"></label>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            <label for="slide01" class="left"></label>
+                            <img src="img/라면.jpg" alt="">
+                            <label for="slide03" class="right"></label>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            <label for="slide02" class="left"></label>
+                            <img src="img/소바.jpg" alt="">
+                            <label for="slide01" class="right"></label>
+                        </a>
+                    </li>
+
+                </ul>
+
             </div>
             <!-- 여기까지 슬라이드 -->
 
             <div class="content">content</div>
         </div>
 
-        <div class="footer">footer</div>
+        <div style="border: 0px;" class="footer"><p> MURIT / JunGameⓒ kjt3015@naver.com </p>
+        </div>
+
     </div>
     <!-- 김준태 -->
 </body>
+
 </html>
