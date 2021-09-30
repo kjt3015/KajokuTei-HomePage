@@ -7,17 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
     <style>
-        .menu>li{
+        .menu>li {
             display: inline-block;
         }
-        .menu>li>a{
+
+        .menu>li>a {
             display: block;
             position: relative;
         }
-        .menu_text>ul{
+
+        .menu_text>ul {
             padding: 0%;
             top: 50%;
         }
+
         .frame {
             display: grid;
             grid-template-rows: auto 800px 50px;
@@ -27,16 +30,19 @@
             display: grid;
             grid-template-rows: auto 1fr;
         }
-        .header{
+
+        .header {
             display: grid;
             grid-template-columns: 65px auto 65px;
             height: 70px;
             margin: 5px;
         }
-        .header>div{
+
+        .header>div {
             border: 0px;
             margin: 0px;
         }
+
         /* #슬라이드 */
         .section input[id*="slide"] {
             display: none;
@@ -102,16 +108,104 @@
         }
 
         /* #슬라이드끝 */
+        /* 메뉴바 */
+        input[id="menuicon"] {
+            display: none;
+        }
+
+        input[id="menuicon"]+label {
+            display: block;
+            width: 30px;
+            height: 25px;
+            position: fixed;
+            right: 0;
+            left: 30px;
+            top: 30px;
+            /* top: calc(50% - 25px); */
+            transition: all .35s;
+            cursor: pointer;
+        }
+
+        input[id="menuicon"]:checked+label {
+            z-index: 2;
+            right: 300px;
+        }
+
+        input[id="menuicon"]+label span {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            border-radius: 30px;
+            background: #000;
+            transition: all .35s;
+        }
+
+        input[id="menuicon"]+label span:nth-child(1) {
+            top: 0;
+        }
+
+        input[id="menuicon"]+label span:nth-child(2) {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        input[id="menuicon"]+label span:nth-child(3) {
+            bottom: 0;
+        }
+
+        input[id="menuicon"]:checked+label span:nth-child(1) {
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        input[id="menuicon"]:checked+label span:nth-child(2) {
+            opacity: 0;
+        }
+
+        input[id="menuicon"]:checked+label span:nth-child(3) {
+            bottom: 50%;
+            transform: translateY(50%) rotate(-45deg);
+        }
+
+
+        div[class="sidebar"] {
+            width: 300px;
+            height: 100%;
+            background: #222;
+            position: fixed;
+            top: 0;
+            left: -300px;
+            z-index: 1;
+            transition: all .35s;
+        }
+
+        input[id="menuicon"]:checked+label+div {
+            left: 0;
+        }
+
+        /* 메뉴바 끝*/
     </style>
 </head>
 
 <body style="margin: 5px; background-color: #363533;">
     <div style="border: 0px; margin: 0%;" class="frame">
-        <div style="text-align: center; right: 10px; top: 10px; background-color: gray;" class="header">
-            <div class="menu_text">메뉴</div>
-            <a href="index.html"><img style="display: block; margin: 0 auto;" height="70px" width="150px" src="img/가족정.jpg" alt=""></a>
+        <div style="border-radius: 0%; text-align: center; right: 10px; top: 10px; background-color: gray;"
+            class="header">
+            <div class="menu_text"> <input type="checkbox" id="menuicon">
+                <label for="menuicon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <div class="sidebar">
+                </div>
+            </div>
+            <a href="index.html"><img style="display: block; margin: 0 auto;" height="70px" width="150px"
+                    src="img/가족정.jpg" alt=""></a>
             <div>
-                <img style="display: block; margin: 15px auto;" height="40px" width="40px" src="img/인스타그램.png" alt="">
+                <img style="display: block; margin: 15px auto;" height="40px" width="40px" src="img/인스타그램 컬러.png"
+                    alt="">
             </div>
         </div>
 
@@ -156,11 +250,18 @@
 
             <div style="word-break:break-all; margin: 0%; background-color: gray;" class="content">
                 <h3>what is Lorem Ipsum?</h3>
-                <img width="180px" height="250px" align="right" vspace="10" hspace="10" src="img/로봇.jpg" alt="">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                <img width="180px" height="250px" align="right" vspace="10" hspace="10" src="img/로봇.jpg" alt="">Lorem
+                Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
+                to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
+                typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
+                Aldus PageMaker including versions of Lorem Ipsum.
             </div>
         </div>
 
-        <div style="background-color: gray; border: 0px;" class="footer"><p> MURIT / JunGameⓒ kjt3015@naver.com </p>
+        <div style="background-color: gray; border: 0px;" class="footer">
+            <p> MURIT / JunGameⓒ kjt3015@naver.com </p>
         </div>
 
     </div>
