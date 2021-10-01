@@ -1,12 +1,10 @@
 .frame {
-    border: 0px;
-    margin: 0%;
+    /* margin: 0%; */
     display: grid;
-    grid-template-rows: auto 800px 50px;
+    grid-template-rows: auto auto auto;
 }
 
 body{
-    margin: 5px;
     background-color: #363533;
 }
 
@@ -14,18 +12,11 @@ body{
 .header {
     display: grid;
     grid-template-columns: 85px auto 90px;
+
     height: 70px;
     margin: 5px;
-    border-radius: 0%;
-    /* text-align: center; */
-    right: 10px;
-    top: 10px;
+    border-radius: 10px;
     background-color: gray;
-}
-
-.header>div {
-    border: 0px;
-    margin: 0px;
 }
 
 /* 메뉴 */
@@ -121,12 +112,13 @@ input[id="menuicon"]:checked+label+div {
 
 /* 메뉴바 끝*/
 
+/* 메인 */
 .section {
     display: grid;
     grid-template-rows: auto 1fr;
 }
 
-/* #슬라이드 */
+/* 메인화면 슬라이드 */
 .section input[id*="slide"] {
     display: none;
 }
@@ -168,12 +160,12 @@ input[id="menuicon"]:checked+label+div {
     cursor: pointer;
 }
 
-.section .slidelist .left {
+.section .slidelist .slide_left {
     left: 30px;
     background: url('img/왼쪽.png') center center / 100% no-repeat;
 }
 
-.section .slidelist .right {
+.section .slidelist .slide_right {
     right: 30px;
     background: url('img/오른쪽.png') center center / 100% no-repeat;
 }
